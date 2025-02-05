@@ -18,6 +18,11 @@
   align-items: center;
 }
 
+.stream-container {
+  overflow: visible;
+  height: 68px;
+}
+
 h1 {
   text-align: center;
 }
