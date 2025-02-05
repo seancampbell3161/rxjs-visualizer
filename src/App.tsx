@@ -13,15 +13,9 @@ function App() {
 
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/map">Map</Link>
-            </li>
-            <li>
-              <Link to="/filter">Filter</Link>
-            </li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/map">Map</Link></li>
+            <li><Link to="/filter">Filter</Link></li>
           </ul>
         </nav>
         <Routes>

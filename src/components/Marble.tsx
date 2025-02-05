@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 
 interface MarbleProps {
     label: string,
+    marbleColor: string;
 }
-export default function Marble({ label }: MarbleProps) {
+export default function Marble({ label, marbleColor }: MarbleProps) {
     const [x, setX] = useState(0);
 
     useEffect(() => setX(1), []);
@@ -23,7 +24,7 @@ export default function Marble({ label }: MarbleProps) {
                 transform={`translate(${x}, 5)`}
             >
                 <circle r="2.3" style={{
-                    fill: 'rgb(255, 105, 70)',
+                    fill: {marbleColor}.marbleColor,
                     stroke: 'white',
                     strokeWidth: '0.3'
                 }}>

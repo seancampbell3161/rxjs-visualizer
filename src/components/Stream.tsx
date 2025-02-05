@@ -1,19 +1,24 @@
 import { ReactElement, useEffect, useState } from "react";
 import Marble from './Marble'
 
-interface MarbleProps {
+export interface MarbleProps {
     label: string;
+    marbleColor: string;
 }
 
-export default function Stream() {
+export interface StreamProps {
+    marbleColor: string;
+}
+
+export default function Stream({ marbleColor }: StreamProps) {
     const [marbleProps, setMarbleProps] = useState<MarbleProps[]>([])
 
     const handleAdd = () => {
-        setMarbleProps(props => [...props, { label: (marbleProps.length + 1).toString() }]);
+        setMarbleProps(props => [...props, { label: (marbleProps.length + 1).toString(), marbleColor: marbleColor }]);
     }
     
     const marbles: ReactElement[] = marbleProps.map((props, index) => {
-        return <Marble key={index} label={props.label} />
+        return <Marble key={index} label={props.label} marbleColor={marbleColor} />
     });
     
     return (
