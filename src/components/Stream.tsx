@@ -12,7 +12,7 @@ export interface StreamProps {
 }
 
 export default function Stream({ marbleColor, marbleValue }: StreamProps) {
-    const [marbleProps, setMarbleProps] = useState<MarbleProps[]>([])
+    const [marbleProps, setMarbleProps] = useState<MarbleProps[]>([]);
 
     useEffect(() => {
         if (Number(marbleValue) > 0) {

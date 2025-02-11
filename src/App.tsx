@@ -4,6 +4,7 @@ import Stream from './components/Stream'
 import Map from './components/operators/Map'
 import Filter from './components/operators/Filter'
 import CombineLatest from './components/operators/CombineLatest'
+import SwitchMap from './components/operators/SwitchMap'
 
 function App() {
 
@@ -15,15 +16,17 @@ function App() {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/map">Map</Link></li>
-            <li><Link to="/filter">Filter</Link></li>
-            <li><Link to="/combineLatest">CombineLatest</Link></li>
+            <li><Link to="/map">map</Link></li>
+            <li><Link to="/filter">filter</Link></li>
+            <li><Link to="/combineLatest">combineLatest</Link></li>
+            <li><Link to="/switchMap">switchMap</Link></li>
           </ul>
         </nav>
         <Routes>
           <Route path="map" element={<Map />} />
           <Route path="filter" element={<Filter />} />
           <Route path='combineLatest' element={<CombineLatest />} />
+          <Route path='switchMap' element={<SwitchMap />} />
         </Routes>
       </div>
     </>
