@@ -4,7 +4,6 @@ import OperatorLabel from "../OperatorLabel";
 
 export default function SwitchMap() {
     const [marble1Input, setMarble1Input] = useState(0);
-    const [marble2Index, setMarble2Index] = useState(-1);
     const [marble2Input, setMarble2Input] = useState('');
     const [marbleOutput, setMarbleOutput] = useState('');
 
@@ -36,18 +35,6 @@ export default function SwitchMap() {
         setMarble1Input(r);
     }
 
-    const handleAdd2 = () => {
-        if (marble2Index >= 25) {
-            const i = -1;
-            setMarble2Index(i);
-            return;
-        }
-
-        const r = marble2Index + 1;
-        setMarble2Index(r);
-        setMarble2Input(alpha[r]);
-    }
-
     return (
         <>
             <div className="marble-container">
@@ -55,7 +42,6 @@ export default function SwitchMap() {
                 <Stream marbleColor="rgb(255, 105, 70)" marbleValue={marble1Input.toString()} />
             </div>
             <div className="marble-container extra-margin">
-            {/* <button className="add-button" onClick={handleAdd2}><span className="material-symbols-outlined">add</span></button> */}
                 <Stream marbleColor="rgb(70, 105, 255)" marbleValue={marble2Input} />
             </div>
             <OperatorLabel expression={'obs1$.switchMap(x => obs2$((x, y) => x + y))'} />
