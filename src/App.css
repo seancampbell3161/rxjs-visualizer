@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono&display=swap');
+
 #root {
   font-size: 14px;
   width: 100%;
@@ -45,6 +48,7 @@
   border: 1px solid rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   box-shadow: 2px 2px 3px #747bff6f;
+  font-family: 'Atkinson Hyperlegible Mono', fantasy;
 }
 
 .add-button {
@@ -63,4 +67,8 @@ h1 {
   'wght' 400,
   'GRAD' 0,
   'opsz' 24,
+}
+
+.extra-margin {
+  margin-left: 24%;
 }
