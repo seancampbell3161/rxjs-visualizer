@@ -5,6 +5,7 @@ import Map from './components/operators/Map'
 import Filter from './components/operators/Filter'
 import CombineLatest from './components/operators/CombineLatest'
 import SwitchMap from './components/operators/SwitchMap'
+import Concat from './components/operators/Concat'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
             <li><Link to="/filter">filter</Link></li>
             <li><Link to="/combineLatest">combineLatest</Link></li>
             <li><Link to="/switchMap">switchMap</Link></li>
+            <li><Link to="/concat">concat</Link></li>
           </ul>
         </nav>
         <Routes>
@@ -27,6 +29,7 @@ function App() {
           <Route path="filter" element={<Filter />} />
           <Route path='combineLatest' element={<CombineLatest />} />
           <Route path='switchMap' element={<SwitchMap />} />
+          <Route path='concat' element={<Concat />} />
         </Routes>
       </div>
     </>
