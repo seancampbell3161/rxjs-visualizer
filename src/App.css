@@ -15,9 +15,7 @@
 }
 
 .marble-container {
-  margin-left: 20%;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
 }
 
@@ -27,9 +25,8 @@
 }
 
 .operator-label-container {
-  width: 100%;
+  width: 548px;
   height: 100px;
-  /* margin: 0 20%; */
 }
 
 .operator-label {
@@ -55,10 +52,53 @@
   font-size: 10px;
   font-weight: 800;
   border-radius: 50%;
+  background-color: #747bff;
+  border: 1px solid #9499ff;
+  box-shadow: 0 0 8px #747bff88;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.add-button:hover {
+  background-color: #9499ff;
+  box-shadow: 0 0 14px #747bffbb;
+  border-color: transparent;
 }
 
 h1 {
   text-align: center;
+  margin: 0.5rem 0 1rem;
+}
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+nav {
+  flex-shrink: 0;
+  width: 170px;
+}
+
+nav ul {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+nav ul li {
+  margin-bottom: 0.3rem;
+  white-space: nowrap;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  max-width: 850px;
+  padding: 0 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .material-symbols-outlined {
@@ -70,5 +110,31 @@ h1 {
 }
 
 .extra-margin {
-  margin-left: 24%;
+  margin-left: 2rem;
+}
+
+.operator-description {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.operator-description-name {
+  font-family: 'Atkinson Hyperlegible Mono', monospace;
+  color: #747bff;
+  font-size: 1.6rem;
+  margin: 0 0 0.3rem;
+}
+
+.operator-description-tagline {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0 0 0.4rem;
+  font-size: 1rem;
+}
+
+.operator-description-body {
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+  line-height: 1.65;
+  font-size: 0.95rem;
 }

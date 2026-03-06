@@ -10,7 +10,7 @@ export default function Marble({ label, marbleColor }: MarbleProps) {
     useEffect(() => setX(1), []);
     
     useEffect(() => {
-        if (x <= 95) {
+        if (x <= 90) {
             const t = setTimeout(() => setX(oldX => oldX + 0.4), 7)
             return () => clearTimeout(t);
         }
@@ -23,15 +23,15 @@ export default function Marble({ label, marbleColor }: MarbleProps) {
             }}
                 transform={`translate(${x}, 5)`}
             >
-                <circle r="2.3" style={{
+                <circle r="3.2" style={{
                     fill: {marbleColor}.marbleColor,
                     stroke: 'white',
                     strokeWidth: '0.3'
                 }}>
                 </circle>
-                <text textAnchor='middle' y={0.8} style={{
+                <text textAnchor='middle' y={1.1} style={{
                     color: 'black',
-                    fontSize: '2.5px'
+                    fontSize: '3px'
                 }}>{label}</text>
             </g>
 

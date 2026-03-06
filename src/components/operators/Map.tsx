@@ -1,5 +1,6 @@
 import { useState } from "react"
 import OperatorLabel from "../OperatorLabel"
+import OperatorDescription from "../OperatorDescription"
 import Stream from "../Stream"
 
 export default function Map() {
@@ -14,6 +15,11 @@ export default function Map() {
 
     return (
         <>
+            <OperatorDescription
+                name="map"
+                tagline="Transform each value."
+                description="Applies a function to every value emitted by the source and passes the result downstream. Works just like Array.map(), but for streams of events over time."
+            />
             <div className="marble-container">
             <button id="myButton" className="add-button" onClick={handleAdd}><span className="material-symbols-outlined">add</span></button>
                 <Stream marbleColor="rgb(255, 105, 70)" marbleValue={marbleInput.toString()} />

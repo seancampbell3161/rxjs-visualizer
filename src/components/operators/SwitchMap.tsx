@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Stream from "../Stream";
 import OperatorLabel from "../OperatorLabel";
+import OperatorDescription from "../OperatorDescription";
 
 export default function SwitchMap() {
     const [marble1Input, setMarble1Input] = useState(0);
@@ -9,7 +10,7 @@ export default function SwitchMap() {
 
     useEffect(() => {
         if (marble1Input > 0) {
-            let intervalId: number | undefined;
+            // let intervalId: number | undefined;
             let count = 0;
 
             const emitMarble = () => {
@@ -19,7 +20,7 @@ export default function SwitchMap() {
                 }
             }
 
-            intervalId = setInterval(emitMarble, 800);
+            const intervalId = setInterval(emitMarble, 800);
             return () => clearInterval(intervalId);
         }
     }, [marble1Input]);
@@ -37,6 +38,11 @@ export default function SwitchMap() {
 
     return (
         <>
+            <OperatorDescription
+                name="switchMap"
+                tagline="Always work with the latest inner observable — cancel the rest."
+                description="Maps each source value to an inner observable. When a new source value arrives, it cancels the currently active inner observable and switches to the new one. Perfect for scenarios like live search where only the latest request matters."
+            />
             <div className="marble-container">
             <button className="add-button" onClick={handleAdd1}><span className="material-symbols-outlined">add</span></button>
                 <Stream marbleColor="rgb(255, 105, 70)" marbleValue={marble1Input.toString()} />

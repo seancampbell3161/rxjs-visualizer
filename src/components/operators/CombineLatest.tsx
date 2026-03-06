@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import OperatorLabel from "../OperatorLabel";
+import OperatorDescription from "../OperatorDescription";
 import Stream from "../Stream";
 
 export default function CombineLatest() {
@@ -35,6 +36,11 @@ export default function CombineLatest() {
 
     return (
         <>
+            <OperatorDescription
+                name="combineLatest"
+                tagline="React to any stream, using the latest from all."
+                description="Whenever any source emits, it combines the most recent value from each stream and emits the result. Both streams must have emitted at least once before any output appears."
+            />
             <div className="marble-container">
             <button className="add-button" onClick={handleAdd1}><span className="material-symbols-outlined">add</span></button>
                 <Stream marbleColor="rgb(255, 105, 70)" marbleValue={marble1Input.toString()} />

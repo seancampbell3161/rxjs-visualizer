@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Stream from "../Stream";
 import OperatorLabel from "../OperatorLabel";
+import OperatorDescription from "../OperatorDescription";
 
 export default function Concat() {
 
@@ -48,6 +49,11 @@ export default function Concat() {
 
     return (
         <>
+            <OperatorDescription
+                name="concat"
+                tagline="Subscribe to observables one at a time, in order."
+                description="Subscribes to each source observable sequentially — the next one starts only after the previous completes. Values from each stream appear in the output in strict order. Click to watch all three streams play out one after another."
+            />
             <div className="marble-container">
                 <button className="add-button" onClick={handleAdd1} disabled={isDisabled}><span className="material-symbols-outlined">add</span></button>
                 <Stream marbleColor="rgb(255, 105, 70)" marbleValue={marble1Input.toString()} />
