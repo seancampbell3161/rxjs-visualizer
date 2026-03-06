@@ -138,3 +138,80 @@ main {
   line-height: 1.65;
   font-size: 0.95rem;
 }
+
+.home {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.home-heading {
+  font-family: 'Atkinson Hyperlegible Mono', monospace;
+  color: #747bff;
+  font-size: 1.4rem;
+  margin: 0 0 1.2rem;
+}
+
+.home-intro {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin: 0 0 0.9rem;
+  font-size: 0.95rem;
+  max-width: 560px;
+}
+
+.home-intro em {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: normal;
+}
+
+.home-intro strong {
+  color: #fff;
+}
+
+.home-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 1.8rem;
+}
+
+.home-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+}
+
+.home-operators-heading {
+  margin: 2rem 0 0.75rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+}
+
+.home-operators {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.home-operator-link {
+  font-family: 'Atkinson Hyperlegible Mono', monospace;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #9499ff;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+
+.home-operator-link:hover {
+  background-color: rgba(116, 123, 255, 0.15);
+  border-color: #747bff;
+  color: #fff;
+}
