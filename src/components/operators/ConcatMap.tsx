@@ -30,10 +30,9 @@ export default function ConcatMap() {
 
         intervalRef.current = setInterval(() => {
             if (count < 3) {
-                const emission = value.toString() + alpha[count];
-                setInnerEmission(emission);
+                setInnerEmission(alpha[count]);
                 outputCountRef.current++;
-                setOutput(emission);
+                setOutput(value.toString() + alpha[count]);
                 setOutputId(outputCountRef.current.toString());
                 count++;
             } else {
@@ -68,7 +67,7 @@ export default function ConcatMap() {
             <div className="marble-container extra-margin">
                 <Stream marbleColor="rgb(70, 105, 255)" marbleValue={innerEmission} />
             </div>
-            <OperatorLabel expression={'concatMap(x => obs$(x))'} />
+            <OperatorLabel expression={'obs1$.concatMap(x => obs2$((x, y) => x + y))'} />
             <div className="marble-container extra-margin">
                 <Stream marbleColor="rgb(105, 255, 70)" marbleValue={output} marbleId={outputId} />
             </div>

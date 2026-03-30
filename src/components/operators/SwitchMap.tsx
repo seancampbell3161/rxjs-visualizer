@@ -15,7 +15,8 @@ export default function SwitchMap() {
 
             const emitMarble = () => {
                 if (count < 3) {
-                    setMarble2Input(marble1Input.toString() + alpha[count]);
+                    setMarble2Input(alpha[count]);
+                    setMarbleOutput(marble1Input.toString() + alpha[count]);
                     count++;
                 }
             }
@@ -25,9 +26,6 @@ export default function SwitchMap() {
         }
     }, [marble1Input]);
 
-    useEffect(() => {
-        setMarbleOutput(marble2Input);
-    }, [marble2Input])
 
     const alpha = 'abcdefghijklmnopqrstuvwxyz';
 
