@@ -1,22 +1,3 @@
-import { Link } from 'react-router';
-
-const OPERATORS = [
-    { path: 'map', label: 'map' },
-    { path: 'filter', label: 'filter' },
-    { path: 'take', label: 'take' },
-    { path: 'startWith', label: 'startWith' },
-    { path: 'scan', label: 'scan' },
-    { path: 'debounceTime', label: 'debounceTime' },
-    { path: 'distinctUntilChanged', label: 'distinctUntilChanged' },
-    { path: 'merge', label: 'merge' },
-    { path: 'zip', label: 'zip' },
-    { path: 'combineLatest', label: 'combineLatest' },
-    { path: 'concat', label: 'concat' },
-    { path: 'mergeMap', label: 'mergeMap' },
-    { path: 'switchMap', label: 'switchMap' },
-    { path: 'concatMap', label: 'concatMap' },
-];
-
 export default function Home() {
     return (
         <div className="home">
@@ -31,7 +12,7 @@ export default function Home() {
                 Each circle (marble) represents a value emitted at a point in time, travelling left to right along a timeline.
             </p>
             <p className="home-intro">
-                Pick an operator below to see it in action. Click the <strong>+</strong> button to emit
+                Pick an operator from the sidebar to see it in action. Click the <strong>+</strong> button to emit
                 values and watch how the operator reacts in real time.
             </p>
 
@@ -72,15 +53,19 @@ export default function Home() {
                     </svg>
                     <span>Second input stream</span>
                 </div>
-            </div>
-
-            <h3 className="home-operators-heading">Explore operators</h3>
-            <div className="home-operators">
-                {OPERATORS.map(op => (
-                    <Link key={op.path} to={op.path} className="home-operator-link">
-                        {op.label}
-                    </Link>
-                ))}
+                <div className="home-legend-item">
+                    <svg viewBox="0 0 20 20" width="28" height="28">
+                        <line x1="10" y1="2" x2="10" y2="18" stroke="white" strokeWidth="2.5"/>
+                    </svg>
+                    <span>Stream completed</span>
+                </div>
+                <div className="home-legend-item">
+                    <svg viewBox="0 0 20 20" width="28" height="28">
+                        <line x1="4" y1="4" x2="16" y2="16" stroke="#ff4444" strokeWidth="2.5"/>
+                        <line x1="16" y1="4" x2="4" y2="16" stroke="#ff4444" strokeWidth="2.5"/>
+                    </svg>
+                    <span>Stream errored</span>
+                </div>
             </div>
         </div>
     );

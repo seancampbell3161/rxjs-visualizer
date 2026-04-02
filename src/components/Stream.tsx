@@ -1,5 +1,6 @@
 import { ReactElement, useEffect, useState } from "react";
 import Marble from './Marble'
+import StreamMarker from './StreamMarker'
 
 export interface MarbleProps {
     label: string;
@@ -12,10 +13,15 @@ export interface StreamProps {
     /** When provided, used as the trigger for adding marbles instead of marbleValue.
      *  Allows showing duplicate consecutive values (e.g. distinctUntilChanged input). */
     marbleId?: string;
+    /** When true, a completion marker (|) animates along the timeline. */
+    completed?: boolean;
+    /** When true, an error marker (X) animates along the timeline. */
+    error?: boolean;
 }
 
-export default function Stream({ marbleColor, marbleValue, marbleId }: StreamProps) {
+export default function Stream({ marbleColor, marbleValue, marbleId, completed, error }: StreamProps) {
     const [marbleProps, setMarbleProps] = useState<MarbleProps[]>([]);
+    const [streamEnd, setStreamEnd] = useState<'complete' | 'error' | null>(null);
     const trigger = marbleId !== undefined ? marbleId : marbleValue;
 
     useEffect(() => {
@@ -32,11 +38,19 @@ export default function Stream({ marbleColor, marbleValue, marbleId }: StreamPro
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [trigger]);
-    
+
+    useEffect(() => {
+        if (completed) setStreamEnd('complete');
+    }, [completed]);
+
+    useEffect(() => {
+        if (error) setStreamEnd('error');
+    }, [error]);
+
     const marbles: ReactElement[] = marbleProps.map((props, index) => {
         return <Marble key={index} label={props.label} marbleColor={marbleColor} />
     });
-    
+
     return (
         <>
             <svg className="stream-container" viewBox='0 0 7 10' style={{ width: '48px' }}>
@@ -45,6 +59,7 @@ export default function Stream({ marbleColor, marbleValue, marbleId }: StreamPro
             </svg>
             <svg className="stream-container" viewBox='0 0 100 10' style={{ width: '500px' }}>
                 {marbles}
+                {streamEnd && <StreamMarker type={streamEnd} />}
             </svg>
         </>
     )

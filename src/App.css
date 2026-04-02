@@ -56,12 +56,44 @@
   border: 1px solid #9499ff;
   box-shadow: 0 0 8px #747bff88;
   transition: background-color 0.2s, box-shadow 0.2s;
+  outline: none;
 }
 
 .add-button:hover {
   background-color: #9499ff;
   box-shadow: 0 0 14px #747bffbb;
   border-color: transparent;
+}
+
+.error-button {
+  font-size: 10px;
+  font-weight: 800;
+  border-radius: 50%;
+  background-color: #cc3333;
+  border: 1px solid #ff5555;
+  box-shadow: 0 0 8px #cc333388;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  margin-left: 0.4rem;
+  outline: none;
+}
+
+.error-button:hover {
+  background-color: #ff5555;
+  box-shadow: 0 0 14px #ff5555bb;
+  border-color: transparent;
+}
+
+.error-button:disabled,
+.add-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.tap-log {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Atkinson Hyperlegible Mono', monospace;
+  font-size: 0.85rem;
+  margin: 0;
 }
 
 h1 {
@@ -77,12 +109,32 @@ h1 {
 
 nav {
   flex-shrink: 0;
-  width: 170px;
+  width: 185px;
+}
+
+.nav-home-link {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav-category {
+  margin-bottom: 1rem;
+}
+
+.nav-category-heading {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+  margin: 0 0 0.4rem;
 }
 
 nav ul {
-  list-style: disc;
-  padding-left: 1.2rem;
+  list-style: none;
+  padding-left: 0;
   margin: 0;
 }
 

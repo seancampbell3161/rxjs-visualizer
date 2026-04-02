@@ -14,29 +14,31 @@ import Scan from './components/operators/Scan'
 import Zip from './components/operators/Zip'
 import MergeMap from './components/operators/MergeMap'
 import StartWith from './components/operators/StartWith'
+import Tap from './components/operators/Tap'
+import Pairwise from './components/operators/Pairwise'
+import Delay from './components/operators/Delay'
+import ThrottleTime from './components/operators/ThrottleTime'
+import ExhaustMap from './components/operators/ExhaustMap'
+import WithLatestFrom from './components/operators/WithLatestFrom'
+import CatchError from './components/operators/CatchError'
 import Home from './components/Home'
+import { OPERATOR_CATEGORIES } from './operators'
 
 function OperatorLayout() {
   return (
     <div className="layout">
       <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/map">map</Link></li>
-          <li><Link to="/filter">filter</Link></li>
-          <li><Link to="/take">take</Link></li>
-          <li><Link to="/startWith">startWith</Link></li>
-          <li><Link to="/scan">scan</Link></li>
-          <li><Link to="/debounceTime">debounceTime</Link></li>
-          <li><Link to="/distinctUntilChanged">distinctUntilChanged</Link></li>
-          <li><Link to="/merge">merge</Link></li>
-          <li><Link to="/zip">zip</Link></li>
-          <li><Link to="/combineLatest">combineLatest</Link></li>
-          <li><Link to="/concat">concat</Link></li>
-          <li><Link to="/mergeMap">mergeMap</Link></li>
-          <li><Link to="/switchMap">switchMap</Link></li>
-          <li><Link to="/concatMap">concatMap</Link></li>
-        </ul>
+        <Link to="/" className="nav-home-link">Home</Link>
+        {OPERATOR_CATEGORIES.map(category => (
+          <div key={category.name} className="nav-category">
+            <h3 className="nav-category-heading">{category.name}</h3>
+            <ul>
+              {category.operators.map(op => (
+                <li key={op.path}><Link to={`/${op.path}`}>{op.label}</Link></li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </nav>
       <main>
         <Outlet />
@@ -50,8 +52,8 @@ function App() {
     <div className="container">
       <h1>RxJS Visualizer</h1>
       <Routes>
-        <Route index element={<Home />} />
         <Route element={<OperatorLayout />}>
+          <Route index element={<Home />} />
           <Route path="map" element={<Map />} />
           <Route path="filter" element={<Filter />} />
           <Route path="take" element={<Take />} />
@@ -66,6 +68,13 @@ function App() {
           <Route path="mergeMap" element={<MergeMap />} />
           <Route path="switchMap" element={<SwitchMap />} />
           <Route path="concatMap" element={<ConcatMap />} />
+          <Route path="exhaustMap" element={<ExhaustMap />} />
+          <Route path="tap" element={<Tap />} />
+          <Route path="pairwise" element={<Pairwise />} />
+          <Route path="delay" element={<Delay />} />
+          <Route path="throttleTime" element={<ThrottleTime />} />
+          <Route path="withLatestFrom" element={<WithLatestFrom />} />
+          <Route path="catchError" element={<CatchError />} />
         </Route>
       </Routes>
     </div>
